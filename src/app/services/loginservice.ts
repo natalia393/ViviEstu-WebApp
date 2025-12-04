@@ -2,20 +2,21 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtRequestDTO } from '../models/jwtRequestDTO';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { environment } from 'src/environments/environment'; // <--- Importa esto
+// Asegúrate de que la ruta a environment sea correcta
+import { environment } from '../../environments/environment'; 
 
 @Injectable({
   providedIn: 'root',
 })
 export class Loginservice {
   
-  // Usamos la URL base que definimos antes
-  private url = ${environment.base}/login; 
+  // Usamos la variable de entorno para la URL
+  private url = ${environment.base}/login;
 
   constructor(private http: HttpClient) {}
 
   login(request: JwtRequestDTO) {
-    // Ahora apunta dinámicamente a Render (o localhost si estás en desarrollo)
+    // Apunta dinámicamente a Render o Localhost según el entorno
     return this.http.post(this.url, request);
   }
 
@@ -26,11 +27,19 @@ export class Loginservice {
 
   showRole() {
     let token = sessionStorage.getItem('token');
+    
+    // Si no hay token, devolvemos null inmediatamente
     if (!token) {
       return null; 
     }
+
     const helper = new JwtHelperService();
-    const decodedToken = helper.decodeToken(token);
+    
+    // CORRECCIÓN AQUÍ:
+    // Agregamos el signo de exclamación (!) al final de 'token'
+    // Esto fuerza a TypeScript a entender que el token NO es null
+    const decodedToken = helper.decodeToken(token!); 
+    
     return decodedToken?.role;
   }
 }
