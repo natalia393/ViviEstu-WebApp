@@ -30,15 +30,9 @@ export const appConfig: ApplicationConfig = {
       JwtModule.forRoot({
         config: {
           tokenGetter: tokenGetter,
-          // AQUÍ ESTÁ LA CLAVE:
-          // 1. Agregamos el dominio de Render (SIN https://)
-          // 2. Mantenemos localhost para cuando trabajes en tu PC
-          allowedDomains: ['localhost:8080', 'viviestuv2.onrender.com'],
-
-          // Actualizamos las rutas donde NO queremos enviar token
-          disallowedRoutes: [
-            'http://localhost:8080/login/forget',
-            'https://viviestuv2.onrender.com/login/forget']
+          allowedDomains: ['viviestuv2.onrender.com'],
+          //disallowedRoutes: ['http://localhost:8080/login/forget'],
+          disallowedRoutes: ['https://viviestuv2.onrender.com/login/forget'],
         },
       })
     ),
