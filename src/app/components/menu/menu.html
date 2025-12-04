@@ -1,0 +1,138 @@
+<div class="example-label">
+  @if(verificar()) {
+  <mat-toolbar>
+    <!-- LOGO / HOME -->
+    <div class="nav-left">
+      <button mat-button routerLink="/homes" class="nav-title">
+        <mat-icon>home</mat-icon>
+        ViviEstu
+      </button>
+    </div>
+
+    <!-- MENÚ PRINCIPAL -->
+    <div class="nav-center">
+      @if (isAdmin()) {
+      <!-- ADMIN: USUARIOS -->
+      <button mat-button [matMenuTriggerFor]="menuUsuario">
+        <mat-icon>group</mat-icon> Usuarios
+      </button>
+
+      <button mat-button [matMenuTriggerFor]="menuRol">
+        <mat-icon>admin_panel_settings</mat-icon> Roles
+      </button>
+      }
+
+      <!-- ZONAS -->
+      <button mat-button [matMenuTriggerFor]="menuZona"><mat-icon>map</mat-icon> Zonas</button>
+
+      <!-- REPORTES (CAMBIO SOLICITADO) -->
+      <button mat-button [matMenuTriggerFor]="menuReporte">
+        <mat-icon>bar_chart</mat-icon> Reportes
+      </button>
+
+      @if (isUser()) {
+      <!-- ZONA - UNIVERSIDAD -->
+      <button mat-button [matMenuTriggerFor]="menuZonaUniversidad">
+        <mat-icon>school</mat-icon> Universidades
+      </button>
+
+      <!-- VALORACIONES -->
+      <button mat-button [matMenuTriggerFor]="menuValoracion">
+        <mat-icon>reviews</mat-icon> Valoraciones
+      </button>
+
+      <!-- FAVORITOS -->
+      <button mat-button [matMenuTriggerFor]="menuFavorito">
+        <mat-icon>favorite</mat-icon> Favoritos
+      </button>
+
+      <!-- SIMULADOR -->
+      <button mat-button [matMenuTriggerFor]="menuSimulador">
+        <mat-icon>attach_money</mat-icon> Simulador de Gastos
+      </button>
+
+
+      }
+    </div>
+
+    <!-- PERFIL / SALIR -->
+    <div class="nav-right">
+      <button mat-button [matMenuTriggerFor]="menuSalir">
+        <mat-icon>person</mat-icon> Usuario
+      </button>
+    </div>
+  </mat-toolbar>
+  }
+
+  <!-- ========================= -->
+  <!-- SUBMENÚS                  -->
+  <!-- ========================= -->
+
+
+  <!-- ZONAS -->
+  <mat-menu #menuZona="matMenu">
+    <button mat-menu-item routerLink="/zona/listas"><mat-icon>list</mat-icon> Lista</button>
+    @if (isAdmin()) {
+    <button mat-menu-item routerLink="/zona/nuevos"><mat-icon>add</mat-icon> Insertar</button>
+    }
+  </mat-menu>
+
+
+  <!-- REPORTES (CAMBIO SOLICITADO) -->
+  <mat-menu #menuReporte="matMenu">
+
+    <!-- SOLO ADMIN ve la lista -->
+    @if (isAdmin()) {
+    <button mat-menu-item routerLink="/reporte/listas">
+      <mat-icon>list</mat-icon> Lista
+    </button>
+    }
+
+    <!-- ADMIN y USUARIO pueden crear -->
+    <button mat-menu-item routerLink="/reporte/nuevos">
+      <mat-icon>add</mat-icon> Crear Reporte
+    </button>
+
+  </mat-menu>
+
+  <!-- ZONA - UNIVERSIDAD -->
+  <mat-menu #menuZonaUniversidad="matMenu">
+    <button mat-menu-item routerLink="/zona-universidad/listas"><mat-icon>list</mat-icon> Lista</button>
+    <button mat-menu-item routerLink="/zona-universidad/nuevos"><mat-icon>add</mat-icon> Insertar</button>
+  </mat-menu>
+
+  <!-- VALORACION -->
+  <mat-menu #menuValoracion="matMenu">
+    <button mat-menu-item routerLink="/valoracion/listas"><mat-icon>list</mat-icon> Lista</button>
+    <button mat-menu-item routerLink="/valoracion/nuevos"><mat-icon>add</mat-icon> Insertar</button>
+  </mat-menu>
+
+  <!-- FAVORITOS -->
+  <mat-menu #menuFavorito="matMenu">
+    <button mat-menu-item routerLink="/favoritos/listas"><mat-icon>favorite</mat-icon> Ver Favoritos</button>
+  </mat-menu>
+
+  <!-- SIMULADOR -->
+  <mat-menu #menuSimulador="matMenu">
+    <button mat-menu-item routerLink="/simulador/listas"><mat-icon>list</mat-icon> Consultar</button>
+    <button mat-menu-item routerLink="/simulador/nuevos"><mat-icon>add</mat-icon> Nueva Simulación</button>
+  </mat-menu>
+
+  <!-- ADMIN: USUARIO -->
+  <mat-menu #menuUsuario="matMenu">
+    <button mat-menu-item routerLink="/usuario/listas"><mat-icon>list</mat-icon> Lista</button>
+  </mat-menu>
+
+  <!-- ADMIN: ROLE -->
+  <mat-menu #menuRol="matMenu">
+    <button mat-menu-item routerLink="/rol/listas"><mat-icon>list</mat-icon> Lista</button>
+    <button mat-menu-item routerLink="/rol/nuevos"><mat-icon>add</mat-icon> Insertar</button>
+  </mat-menu>
+
+  <!-- PERFIL / SALIR -->
+  <mat-menu #menuSalir="matMenu">
+    <button mat-menu-item routerLink="/login" (click)="cerrar()"><mat-icon>logout</mat-icon> Cerrar sesión</button>
+    <button mat-menu-item>Rol: {{ role }}</button>
+  </mat-menu>
+
+</div>

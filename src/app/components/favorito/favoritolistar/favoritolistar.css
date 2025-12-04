@@ -1,0 +1,62 @@
+.container {
+  margin-top: 30px;
+}
+
+.title-estilizada {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2d3e50;
+  letter-spacing: 1px;
+}
+
+/* GRID DE TARJETAS */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+  justify-content: center;
+  padding: 10px;
+}
+
+/* TARJETA PRINCIPAL */
+.product-card {
+  border-radius: 18px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* IMAGEN */
+.zona-img {
+  height: 180px;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* CONTENIDO */
+mat-card-content {
+  padding: 15px;
+  text-align: center;
+}
+
+mat-card-content h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #34495e;
+}
+
+mat-card-content p {
+  margin-top: 5px;
+  font-size: 15px;
+  color: #7f8c8d;
+}

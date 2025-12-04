@@ -1,0 +1,52 @@
+<!-- ============= VISTA MODERNA PARA INSERTAR / EDITAR ROL ============= -->
+
+<div class="auth-layout">
+
+  <!-- ======== COLUMNA IZQUIERDA ======== -->
+  <div class="auth-left">
+    <img src="assets/inserts/roles.jpg" alt="Roles ViviEstu">
+
+    <div class="left-text">
+      <h1>Gestión de Roles</h1>
+      <p>Administra los permisos y perfiles dentro de la plataforma ViviEstu.</p>
+    </div>
+  </div>
+
+  <!-- ======== COLUMNA DERECHA (FORMULARIO) ======== -->
+  <div class="auth-right">
+    <div class="form-box">
+
+      <h2>{{ edicion ? 'Editar Rol' : 'Registrar Rol' }}</h2>
+
+      <form [formGroup]="form" (submit)="aceptar()">
+
+        @if (edicion) {
+          <mat-form-field appearance="outline">
+            <mat-label>ID</mat-label>
+            <input matInput formControlName="id" />
+          </mat-form-field>
+        }
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre del Rol</mat-label>
+          <input matInput formControlName="rol" required />
+
+          @if (form.get('rol')?.hasError('required')) {
+            <mat-error>Ingrese un nombre de rol.</mat-error>
+          }
+        </mat-form-field>
+
+        <button matButton="elevated">
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+
+        <button matButton routerLink="/home" class="btn-back">
+          Volver
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,38 @@
+<div class="container">
+  <h1 class="title-estilizada">Mis Comparaciones</h1>
+
+  <div class="card-grid">
+    <mat-card *ngFor="let c of lista" class="product-card">
+
+      <mat-card-header>
+        <div mat-card-avatar class="avatar-circle">
+          C
+        </div>
+
+        <mat-card-title class="product-title">
+          Comparación #{{ c.idComparacion }}
+        </mat-card-title>
+
+        <mat-card-subtitle class="product-subtitle">
+          {{ c.fecha | date:'shortDate' }}
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p><strong>Usuario:</strong> {{ c.usuario.username }}</p>
+        <p>Zonas incluidas: {{ c.detalles?.length || 0 }}</p>
+      </mat-card-content>
+
+      <mat-card-actions align="end">
+        <button mat-icon-button color="primary" [routerLink]="['/comparacion/detalle', c.idComparacion]">
+          <mat-icon>visibility</mat-icon>
+        </button>
+
+        <button mat-icon-button color="warn" (click)="eliminar(c.idComparacion)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-actions>
+
+    </mat-card>
+  </div>
+</div>

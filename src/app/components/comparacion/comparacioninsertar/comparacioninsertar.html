@@ -1,0 +1,61 @@
+<div class="auth-layout">
+
+  <!-- =============== COLUMNA IZQUIERDA =============== -->
+  <div class="auth-left">
+    <img src="assets/inserts/comparacion.jpg" alt="Comparaciones ViviEstu">
+
+    <div class="left-text">
+      <h1>Comparador de Zonas 🏙️⚖️</h1>
+      <p>Selecciona zonas y usuarios para generar comparaciones rápidas y útiles.</p>
+    </div>
+  </div>
+
+  <!-- =============== COLUMNA DERECHA =============== -->
+  <div class="auth-right">
+
+    <div class="form-box">
+
+      <h2>{{ edicion ? 'Editar Comparación' : 'Registrar Comparación' }}</h2>
+
+      <form [formGroup]="form" (submit)="aceptar()">
+
+        @if (edicion) {
+          <mat-form-field appearance="outline">
+            <mat-label>ID Comparación</mat-label>
+            <input matInput formControlName="id" />
+          </mat-form-field>
+        }
+
+        <mat-form-field appearance="outline">
+          <mat-label>Usuario</mat-label>
+          <mat-select formControlName="usuario" required>
+            @for (u of listaUsuarios; track u.idUsuario) {
+              <mat-option [value]="u.idUsuario">{{ u.username }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Zonas a comparar</mat-label>
+          <mat-select formControlName="zonas" multiple required>
+            @for (z of listaZonas; track z.idZona) {
+              <mat-option [value]="z.idZona">{{ z.nombreZona }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <button matButton="elevated">
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+
+        <button matButton routerLink="/homes" style="margin-top: 10px;">
+          Volver
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

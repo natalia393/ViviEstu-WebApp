@@ -1,0 +1,90 @@
+/* =============================== */
+/*       CONTENEDOR PRINCIPAL      */
+/* =============================== */
+.container {
+  max-width: 450px;
+  margin: 50px auto;
+  padding: 40px;
+  background: var(--gray-100);
+  border-radius: 14px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+  font-family: 'Rubik', sans-serif;
+}
+
+/* =============================== */
+/*             TÍTULO              */
+/* =============================== */
+.container h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+/* =============================== */
+/*          FORMULARIO             */
+/* =============================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Cada mat-form-field ocupa el 100% */
+mat-form-field {
+  width: 100%;
+}
+
+/* =============================== */
+/*      ESTILO DEL FORM FIELD      */
+/* =============================== */
+
+/* Cambia color del label */
+.mat-form-field-label {
+  color: var(--gray-25) !important;
+  font-family: 'Rubik', sans-serif !important;
+}
+
+/* Input */
+input[matInput] {
+  font-family: 'Rubik', sans-serif;
+  font-size: 15px;
+}
+
+/* Borde del Outline en primary */
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: var(--primary);
+}
+
+/* Error */
+mat-error {
+  font-family: 'Rubik', sans-serif;
+  font-size: 13px;
+}
+
+/* =============================== */
+/*           BOTÓN FINAL           */
+/* =============================== */
+button[matButton] {
+  background: var(--secondary);
+  color: var(--support);
+  border-radius: 10px;
+  padding: 12px;
+  margin-top: 10px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.25s;
+  width: 100%;
+}
+
+/* Hover */
+button[matButton]:hover {
+  background: var(--hover);
+}
+
+/* Active */
+button[matButton]:active {
+  background: var(--gray-50);
+  color: white;
+}

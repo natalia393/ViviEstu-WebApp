@@ -1,0 +1,91 @@
+<div class="auth-layout">
+
+  <!-- =============== COLUMNA IZQUIERDA =============== -->
+  <div class="auth-left">
+    <img src="assets/inserts/valoracion.jpg" alt="Valoraciones ViviEstu">
+
+    <div class="left-text">
+      <h1>Gestiona Valoraciones</h1>
+      <p>Evalúa la seguridad, acceso y servicios de las zonas para mejorar la experiencia estudiantil.</p>
+    </div>
+  </div>
+
+  <!-- =============== COLUMNA DERECHA =============== -->
+  <div class="auth-right">
+
+    <div class="form-box">
+
+      <h2>{{ edicion ? 'Editar Valoración' : 'Registrar Valoración' }}</h2>
+
+      <form [formGroup]="form" (submit)="aceptar()">
+
+        <!-- SOLO EN EDICIÓN -->
+        @if (edicion) {
+          <mat-form-field appearance="outline">
+            <mat-label>ID Valoración</mat-label>
+            <input matInput formControlName="id" />
+          </mat-form-field>
+        }
+
+        <!-- Puntaje Seguridad -->
+        <mat-form-field appearance="outline">
+          <mat-label>Puntaje de Seguridad</mat-label>
+          <input matInput type="number" formControlName="puntajeSeguridad" required />
+        </mat-form-field>
+
+        <!-- Puntaje Acceso -->
+        <mat-form-field appearance="outline">
+          <mat-label>Puntaje de Acceso</mat-label>
+          <input matInput type="number" formControlName="puntajeAcceso" required />
+        </mat-form-field>
+
+        <!-- Puntaje Servicios -->
+        <mat-form-field appearance="outline">
+          <mat-label>Puntaje de Servicios</mat-label>
+          <input matInput type="number" formControlName="puntajeServicios" required />
+        </mat-form-field>
+
+        <!-- Comentario -->
+        <mat-form-field appearance="outline">
+          <mat-label>Comentario</mat-label>
+          <textarea matInput rows="3" formControlName="comentario" required></textarea>
+        </mat-form-field>
+
+        <!-- Usuario -->
+        <mat-form-field appearance="outline">
+          <mat-label>Usuario</mat-label>
+          <mat-select formControlName="usuario" required>
+            @for (u of listaUsuarios; track u.idUsuario) {
+              <mat-option [value]="u.idUsuario">
+                {{ u.username }}
+              </mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Zona -->
+        <mat-form-field appearance="outline">
+          <mat-label>Zona</mat-label>
+          <mat-select formControlName="zona" required>
+            @for (z of listaZonas; track z.idZona) {
+              <mat-option [value]="z.idZona">
+                {{ z.nombreZona }} - {{ z.distrito }}
+              </mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Botón -->
+        <button matButton="elevated">
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+
+        <button matButton routerLink="/homes">Volver</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

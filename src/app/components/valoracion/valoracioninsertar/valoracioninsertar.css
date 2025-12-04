@@ -1,0 +1,123 @@
+/* LAYOUT GENERAL */
+.auth-layout {
+  display: flex;
+  height: calc(100vh - 70px);
+  font-family: 'Rubik', sans-serif;
+  background: var(--gray-100);
+}
+
+/* COLUMNA IZQUIERDA */
+.auth-left {
+  flex: 1.1;
+  background: var(--primary);
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px;
+}
+
+.auth-left img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.18;
+}
+
+.left-text {
+  position: relative;
+  z-index: 5;
+  max-width: 80%;
+}
+
+.left-text h1 {
+  font-size: 42px;
+  font-weight: bold;
+}
+
+.left-text p {
+  font-size: 17px;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* COLUMNA DERECHA */
+.auth-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.form-box {
+  width: 90%;
+  max-width: 520px;
+  background: white;
+  padding: 40px;
+  border-radius: 18px;
+
+  box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+}
+
+.form-box h2 {
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 24px;
+}
+
+/* CAMPOS */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+/* Botón */
+button[matButton] {
+  width: 100%;
+  padding: 14px;
+  background: var(--secondary);
+  color: var(--support);
+  border-radius: 12px;
+  margin-top: 6px;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+button[matButton]:hover {
+  background: var(--hover);
+}
+
+/* Responsive */
+@media (max-width: 1350px) {
+  .auth-layout {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .auth-left {
+    height: 30vh;
+    padding: 25px;
+    text-align: center;
+  }
+
+  .left-text {
+    max-width: 100%;
+    margin: auto;
+  }
+
+  .auth-right {
+    padding: 25px;
+  }
+
+  .form-box {
+    width: 100%;
+    max-width: 600px;  /* 🔥 un poquito más ancho */
+    padding: 30px;
+  }
+}

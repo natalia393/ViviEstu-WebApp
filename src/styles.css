@@ -1,1 +1,87 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary: #4B4E6D;
+  --hover: #A3E8D6;
+  --disabled: #D1EFF2;
+  --secondary: #84DCC6;
+  --support: #222222;
+
+  --gray-100: #F0F2FF;
+  --gray-75: #D2D5ED;
+  --gray-50: #8B8FAD;
+  --gray-25: #3B3D4A;
+  --gray-0: #1A1A20;
+
+  --font-h1: 64px;
+  --font-h2: 40px;
+  --font-h3: 20px;
+  --font-p: 16px;
+  --font-small: 14px;
+
+  --radius: 10px;
+}
+
+/* Quitar fondo gris del estilo FILLED */
+.mat-mdc-form-field {
+  --mdc-filled-text-field-container-color: transparent !important;
+  --mdc-outlined-text-field-container-shape: 10px;
+}
+
+/* Elimina fondo gris */
+.mdc-text-field--filled {
+  background-color: transparent !important;
+  --mdc-filled-text-field-active-indicator-color: transparent !important;
+  --mdc-filled-text-field-focus-active-indicator-color: transparent !important;
+  --mdc-filled-text-field-hover-active-indicator-color: transparent !important;
+}
+
+/* Outline */
+.mdc-text-field--outlined .mdc-notched-outline__leading,
+.mdc-text-field--outlined .mdc-notched-outline__trailing,
+.mdc-text-field--outlined .mdc-notched-outline__notch {
+  border-color: var(--gray-50) !important;
+  border-width: 1.8px !important;
+}
+
+/* Outline hover */
+.mdc-text-field--outlined:hover .mdc-notched-outline__leading,
+.mdc-text-field--outlined:hover .mdc-notched-outline__trailing,
+.mdc-text-field--outlined:hover .mdc-notched-outline__notch {
+  border-color: var(--primary) !important;
+}
+
+/* Controlar altura del wrapper */
+.mat-mdc-text-field-wrapper {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+  min-height: 44px !important;  /* 🔥 evita inputs gigantes */
+  height: auto !important;
+}
+
+/* Ajusta padding interno del input */
+.mdc-text-field__input {
+  padding: 8px 0 !important;  /* 🔥 esta regla es la más importante */
+}
+
+/* Estilo general de input */
+input[matInput], textarea[matInput] {
+  font-family: 'Rubik';
+  font-size: 15px;
+}
+
+/* Ajustar densidad del campo sin romper el label */
+.mat-mdc-form-field {
+  --mdc-outlined-text-field-container-density: -2; /* más compacto */
+  --mdc-outlined-text-field-focus-outline-width: 2px;
+}
+
+/* Ajustar padding del wrapper */
+.mat-mdc-text-field-wrapper {
+  padding: 2px 8px !important;
+}
+
+/* Arreglar altura mínima sin romper etiqueta */
+.mdc-text-field--outlined {
+  min-height: 56px !important; /* altura estándar M3 */
+  height: auto !important;
+}
+

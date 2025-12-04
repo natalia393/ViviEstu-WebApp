@@ -1,0 +1,155 @@
+/* =============================== */
+/*        CONTENEDOR GLOBAL        */
+/* =============================== */
+.home-container {
+  padding: 20px 8%;
+  font-family: 'Rubik', sans-serif;
+  color: var(--gray-25);
+}
+
+/* =============================== */
+/*            BIENVENIDA           */
+/* =============================== */
+.welcome {
+  margin: 40px 0 20px 0;
+  text-align: left;
+}
+
+.welcome h2 {
+  font-size: 32px;
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.welcome p {
+  font-size: 16px;
+  color: var(--gray-50);
+}
+
+/* =============================== */
+/*         ACCIONES RÁPIDAS        */
+/* =============================== */
+.quick-actions {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.action-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.action-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.action-card img {
+  width: 100%;
+  height: 160px;
+  border-radius: var(--radius);
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+.action-card h3 {
+  font-size: 20px;
+  color: var(--support);
+  margin-top: 5px;
+}
+
+.action-card p {
+  color: var(--gray-50);
+  font-size: 14px;
+}
+
+/* =============================== */
+/*         RECOMENDACIONES         */
+/* =============================== */
+.recommendations {
+  margin-top: 60px;
+}
+
+.section-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 25px;
+}
+
+.recommend-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.recommend-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: 0.25s ease;
+}
+
+.recommend-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.recommend-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+}
+
+.recommend-card h3 {
+  font-size: 18px;
+  color: var(--support);
+}
+
+.recommend-card p {
+  font-size: 14px;
+  color: var(--gray-50);
+}
+
+/* =============================== */
+/*              FOOTER             */
+/* =============================== */
+.footer {
+  margin-top: 60px;
+  padding: 20px 0;
+  text-align: center;
+  background: var(--gray-100);
+  color: var(--gray-25);
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+/* =============================== */
+/*             RESPONSIVE          */
+/* =============================== */
+@media (max-width: 768px) {
+  .welcome h2 {
+    font-size: 26px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+
+  .action-card img,
+  .recommend-card img {
+    height: 140px;
+  }
+}

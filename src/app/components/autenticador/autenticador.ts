@@ -1,0 +1,45 @@
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { Loginservice } from '../../services/loginservice';
+import { Router, RouterModule } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { JwtRequestDTO } from '../../models/jwtRequestDTO';
+import { MatIconModule } from '@angular/material/icon';
+
+@Component({
+  selector: 'app-autenticador',
+  imports: [MatFormFieldModule, FormsModule, MatInputModule, MatButtonModule, MatIconModule, RouterModule],
+  templateUrl: './autenticador.html',
+  styleUrl: './autenticador.css',
+})
+export class Autenticador implements OnInit{
+  constructor(
+    private loginService: Loginservice,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) {}
+  username: string = '';
+  password: string = '';
+  mensaje: string = '';
+  hide: boolean = true;
+  
+  ngOnInit(): void {}
+  login() {
+    let request = new JwtRequestDTO();
+    request.username = this.username;
+    request.password = this.password;
+    this.loginService.login(request).subscribe(
+      (data: any) => {
+        sessionStorage.setItem('token', data.jwttoken);
+        this.router.navigate(['homes']);
+      },
+      (error) => {
+        this.mensaje = 'Credenciales incorrectas!!!';
+        this.snackBar.open(this.mensaje, 'Aviso', { duration: 2000 });
+      }
+    );
+  }
+}

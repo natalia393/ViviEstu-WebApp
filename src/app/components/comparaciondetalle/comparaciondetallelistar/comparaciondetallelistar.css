@@ -1,0 +1,61 @@
+.container {
+  margin-top: 30px;
+}
+
+.title-estilizada {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2d3e50;
+  letter-spacing: 1px;
+}
+
+/* TABLA GENERAL */
+table {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* ENCABEZADOS */
+.mat-mdc-header-cell {
+  background: #3f51b5 !important;
+  color: white !important;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px;
+}
+
+/* FILAS */
+.mat-mdc-cell {
+  padding: 14px;
+  font-size: 15px;
+  color: #37474f;
+}
+
+/* ALTERNAR COLORES */
+.mat-mdc-row:nth-child(even) {
+  background: #f3f5ff;
+}
+
+.mat-mdc-row:hover {
+  background: #e7eaff;
+  transition: 0.2s ease;
+}
+
+/* BORDES SUAVES */
+.mat-elevation-z8 {
+  border-radius: 12px !important;
+}
+
+/* ESPACIO ENTRE COLUMNAS EN MÓVIL */
+@media (max-width: 600px) {
+  .mat-mdc-cell,
+  .mat-mdc-header-cell {
+    font-size: 13px;
+    padding: 10px;
+  }
+}

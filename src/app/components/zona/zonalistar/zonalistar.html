@@ -1,0 +1,39 @@
+<div class="container">
+  <h1 class="title-estilizada">Zonas disponibles</h1>
+
+  <div class="card-grid">
+
+    <mat-card *ngFor="let z of lista" class="product-card">
+
+      <!-- IMAGEN CON BOTÓN DE FAVORITO -->
+      <div class="img-wrapper">
+        <img [src]="z.imagenUrl" class="zona-img" alt="Zona" />
+
+        <button mat-icon-button class="fav-btn" (click)="agregarFavorito(z.idZona)">
+          <mat-icon>favorite</mat-icon>
+        </button>
+      </div>
+
+      <!-- HEADER -->
+      <mat-card-header>
+        <mat-card-title class="product-title">
+          {{ z.nombreZona }}
+        </mat-card-title>
+
+        <mat-card-subtitle class="product-subtitle">
+          {{ z.distrito }}
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <!-- CONTENIDO -->
+      <mat-card-content class="content">
+        <p><strong>Precio promedio:</strong> S/. {{ z.precioPromedio }}</p>
+        <p><strong>Seguridad:</strong> {{ z.nivelSeguridad }}/5</p>
+        <p><strong>Transporte:</strong> {{ z.accesibilidadTransporte }}</p>
+        <p><strong>Servicios:</strong> {{ z.serviciosCercanos }}</p>
+      </mat-card-content>
+
+    </mat-card>
+
+  </div>
+</div>

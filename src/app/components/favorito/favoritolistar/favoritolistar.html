@@ -1,0 +1,18 @@
+<div class="container">
+  <h1 class="title-estilizada">Zonas Favoritas</h1>
+
+  <div class="card-grid">
+
+    <mat-card *ngFor="let z of favoritos" class="product-card">
+      
+      <img mat-card-image [src]="z.imagenUrl" class="zona-img" />
+
+      <mat-card-content>
+        <h2>{{ z.nombreZona }}</h2>
+        <p>{{ z.distrito }}</p>
+      </mat-card-content>
+
+    </mat-card>
+
+  </div>
+</div>

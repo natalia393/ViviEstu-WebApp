@@ -1,0 +1,217 @@
+/* =================================== */
+/*         LAYOUT SPLIT SCREEN         */
+/* =================================== */
+.auth-layout {
+  display: flex;
+  height: calc(100vh - 70px); /* deja espacio para el menú */
+  font-family: 'Rubik', sans-serif;
+  background: var(--gray-100);
+}
+
+/* =================================== */
+/*        COLUMNA IZQUIERDA            */
+/* =================================== */
+.auth-left {
+  flex: 1.1;
+  background: var(--primary);
+  color: white;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 60px;
+}
+
+.auth-left img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.18;
+  z-index: 0;
+}
+
+.left-text {
+  position: relative;
+  z-index: 2;
+  max-width: 80%;
+  margin-left: 8%;
+}
+
+.left-text h1 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.left-text p {
+  font-size: 17px;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+/* =================================== */
+/*        COLUMNA DERECHA FORM         */
+/* =================================== */
+.auth-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px 0;
+}
+
+.form-box {
+  width: 90%;
+  max-width: 500px;
+
+  background: #fff;
+  padding: 40px 45px;
+  border-radius: 16px;
+
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+
+  animation: fadeIn 0.5s ease;
+}
+
+.form-box h2 {
+  font-size: 28px;
+  color: var(--primary);
+  font-weight: bold;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* =================================== */
+/*            FORM INPUTS              */
+/* =================================== */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+/* --- apariencia outline NETA --- */
+.mdc-text-field--outlined .mdc-notched-outline__leading,
+.mdc-text-field--outlined .mdc-notched-outline__trailing,
+.mdc-text-field--outlined .mdc-notched-outline__notch {
+  border-color: var(--gray-50) !important;
+  border-width: 1.8px !important;
+  border-radius: 10px !important;
+}
+
+/* outline hover */
+.mdc-text-field--outlined:hover .mdc-notched-outline__leading,
+.mdc-text-field--outlined:hover .mdc-notched-outline__trailing,
+.mdc-text-field--outlined:hover .mdc-notched-outline__notch {
+  border-color: var(--primary) !important;
+}
+
+/* label */
+.mdc-floating-label {
+  font-family: 'Rubik', sans-serif !important;
+  color: var(--gray-25) !important;
+}
+
+/* input */
+input[matInput], textarea[matInput] {
+  font-family: 'Rubik', sans-serif;
+  font-size: 15px;
+}
+
+/* Tamaño más compacto */
+.mat-mdc-text-field-wrapper {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+
+/* Textarea */
+textarea[matInput] {
+  min-height: 90px;
+  resize: vertical;
+}
+
+/* Errores */
+mat-error {
+  font-size: 13px;
+  margin-top: -6px;
+  font-family: 'Rubik', sans-serif;
+  color: #D9534F;
+}
+
+/* =================================== */
+/*               BOTÓN                 */
+/* =================================== */
+button[matButton] {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+
+  background: var(--secondary);
+  color: var(--support);
+
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+
+  transition: 0.25s;
+}
+
+button[matButton]:hover {
+  background: var(--hover);
+}
+
+button[matButton]:active {
+  background: var(--gray-50);
+  color: white;
+}
+
+/* =================================== */
+/*            ANIMACIONES              */
+/* =================================== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =================================== */
+/*            RESPONSIVE               */
+/* =================================== */
+/* 🔥 RESPONSIVE MEJORADO PARA MONITORES GRANDES */
+@media (max-width: 1350px) {
+  .auth-layout {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .auth-left {
+    height: 30vh;
+    padding: 25px;
+    text-align: center;
+  }
+
+  .left-text {
+    max-width: 100%;
+    margin: auto;
+  }
+
+  .auth-right {
+    padding: 25px;
+  }
+
+  .form-box {
+    width: 100%;
+    max-width: 600px;  /* 🔥 un poquito más ancho */
+    padding: 30px;
+  }
+}
+

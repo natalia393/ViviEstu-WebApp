@@ -1,0 +1,76 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title-estilizada {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #2b3a55;
+  margin-bottom: 40px;
+}
+
+.card-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* --- TARJETA --- */
+.product-card {
+  width: 420px;
+  padding: 18px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  transition: transform 0.20s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+/* --- HEADER --- */
+.mat-card-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* --- IMAGEN DEL AVATAR (Zona) --- */
+.avatar-image {
+  width: 70px !important;
+  height: 70px !important;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid #e5e5e5;
+}
+
+/* --- TÍTULO / SUBTÍTULO --- */
+.product-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.product-subtitle {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* --- CONTENIDO --- */
+.content p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+}
+
+.content strong {
+  color: #1a237e;
+}
+
+/* --- ICONOS --- */
+mat-card-actions button {
+  margin-left: 5px;
+}

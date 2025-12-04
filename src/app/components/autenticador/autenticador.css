@@ -1,0 +1,87 @@
+/* ======================== */
+/*    CONTENEDOR PRINCIPAL  */
+/* ======================== */
+.container {
+  max-width: 380px;
+  margin: 80px auto;
+  padding: 40px;
+  border-radius: 14px;
+  background: var(--gray-100);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+}
+
+/* ======================== */
+/*           LOGO           */
+/* ======================== */
+.container img {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+/* ======================== */
+/*         TÍTULO           */
+/* ======================== */
+.container h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* ======================== */
+/*    CAMPOS DE FORMULARIO  */
+/* ======================== */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Borde y estilos personalizados del input */
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: var(--primary);
+}
+
+/* Texto de label */
+.mat-form-field-label {
+  font-family: 'Rubik', sans-serif !important;
+  color: var(--gray-25) !important;
+}
+
+/* Input */
+input[matInput] {
+  font-family: 'Rubik', sans-serif;
+  font-size: 15px;
+}
+
+/* Icono de visibilidad */
+button[mat-icon-button] mat-icon {
+  color: var(--gray-50);
+}
+
+/* ======================== */
+/*        BOTÓN LOGIN       */
+/* ======================== */
+.custom-button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  background: var(--secondary);
+  color: var(--support);
+  transition: 0.25s;
+}
+
+/* Hover */
+.custom-button:hover {
+  background: var(--hover);
+}
+
+/* Al presionar */
+.custom-button:active {
+  background: var(--gray-50);
+  color: white;
+}

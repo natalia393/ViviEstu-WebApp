@@ -1,0 +1,38 @@
+<div class="container">
+  <h1 class="title-estilizada">Valoraciones realizadas</h1>
+
+  <div class="card-grid">
+    <mat-card *ngFor="let v of lista" class="product-card">
+
+      <mat-card-header>
+        <img mat-card-avatar [src]="v.zona.imagenUrl" class="avatar-image" />
+
+        <mat-card-title class="product-title">
+          {{ v.zona.nombreZona }}
+        </mat-card-title>
+
+        <mat-card-subtitle class="product-subtitle">
+          {{ v.fecha | date : 'shortDate' }}
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content class="content">
+        <p><strong>Seguridad:</strong> {{ v.puntajeSeguridad }}/5</p>
+        <p><strong>Acceso:</strong> {{ v.puntajeAcceso }}/5</p>
+        <p><strong>Servicios:</strong> {{ v.puntajeServicios }}/5</p>
+        <p><strong>Comentario:</strong> {{ v.comentario }}</p>
+      </mat-card-content>
+
+      <mat-card-actions align="end">
+        <button mat-icon-button color="primary" [routerLink]="['/valoracion/edits', v.idValoracion]">
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <button mat-icon-button color="warn" (click)="eliminar(v.idValoracion)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-actions>
+
+    </mat-card>
+  </div>
+</div>

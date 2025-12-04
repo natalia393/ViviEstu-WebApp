@@ -1,0 +1,86 @@
+<div class="container">
+  <div style="text-align: center; margin: 3%">
+    <h2>Registrar Usuario</h2>
+  </div>
+
+  <div style="text-align: center; margin: 3%">
+    <form [formGroup]="form" (submit)="registrar()">
+
+      <!-- Username -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre de usuario</mat-label>
+        <input matInput formControlName="username" required />
+
+        @if (form.get('username')?.hasError('required')) {
+          <mat-error>El nombre de usuario es obligatorio.</mat-error>
+        }
+      </mat-form-field>
+      <br />
+
+      <!-- Password -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" formControlName="password" required />
+
+        @if (form.get('password')?.hasError('required')) {
+          <mat-error>Ingrese una contraseña.</mat-error>
+        }
+      </mat-form-field>
+      <br />
+
+      <!-- Email -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Correo</mat-label>
+        <input matInput type="email" formControlName="correo" required />
+
+        @if (form.get('correo')?.hasError('required')) {
+          <mat-error>Ingrese un correo válido.</mat-error>
+        }
+      </mat-form-field>
+      <br />
+
+      <!-- Universidad -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Universidad</mat-label>
+        <input matInput formControlName="universidad" />
+      </mat-form-field>
+      <br />
+
+      <!-- Presupuesto Mensual -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Presupuesto Mensual (S/.)</mat-label>
+        <input matInput type="number" formControlName="presupuestoMensual" required />
+
+        @if (form.get('presupuestoMensual')?.hasError('required')) {
+          <mat-error>Ingrese su presupuesto mensual.</mat-error>
+        }
+      </mat-form-field>
+      <br />
+
+      <!-- Medio de transporte -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Medio de Transporte</mat-label>
+        <input matInput formControlName="medioTransporte" required />
+
+        @if (form.get('medioTransporte')?.hasError('required')) {
+          <mat-error>Especifique su medio de transporte.</mat-error>
+        }
+      </mat-form-field>
+      <br />
+
+      <!-- Ciclo de estudio -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Ciclo de estudio</mat-label>
+        <input matInput formControlName="cicloEstudio" required />
+
+        @if (form.get('cicloEstudio')?.hasError('required')) {
+          <mat-error>Especifique su ciclo actual.</mat-error>
+        }
+      </mat-form-field>
+      <br />
+
+      <button matButton="elevated">Registrar</button>
+
+    </form>
+  </div>
+</div>

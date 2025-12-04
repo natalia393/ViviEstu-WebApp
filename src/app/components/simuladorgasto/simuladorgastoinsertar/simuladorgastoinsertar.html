@@ -1,0 +1,80 @@
+<div class="auth-layout">
+
+  <!-- =============== COLUMNA IZQUIERDA =============== -->
+  <div class="auth-left">
+    <img src="assets/inserts/simulacion.png" alt="Simulación ViviEstu">
+
+    <div class="left-text">
+      <h1>Simulación de Gastos</h1>
+      <p>Estima tus costos mensuales según alquiler, transporte y la zona elegida.</p>
+    </div>
+  </div>
+
+  <!-- =============== COLUMNA DERECHA =============== -->
+  <div class="auth-right">
+
+    <div class="form-box">
+
+      <h2>{{ edicion ? 'Editar Simulación de Gasto' : 'Registrar Simulación de Gasto' }}</h2>
+
+      <form [formGroup]="form" (submit)="aceptar()">
+
+        <!-- ID solo en edición -->
+        @if (edicion) {
+          <mat-form-field appearance="outline">
+            <mat-label>ID Simulación</mat-label>
+            <input matInput formControlName="id" />
+          </mat-form-field>
+        }
+
+        <!-- Costo Alquiler -->
+        <mat-form-field appearance="outline">
+          <mat-label>Costo de Alquiler (S/.)</mat-label>
+          <input matInput type="number" formControlName="costoAlquiler" required />
+        </mat-form-field>
+
+        <!-- Costo Transporte -->
+        <mat-form-field appearance="outline">
+          <mat-label>Costo de Transporte (S/.)</mat-label>
+          <input matInput type="number" formControlName="costoTransporte" required />
+        </mat-form-field>
+
+        <!-- Costo Total -->
+        <mat-form-field appearance="outline">
+          <mat-label>Costo Total Estimado (S/.)</mat-label>
+          <input matInput type="number" formControlName="costoTotalEstimado" required />
+        </mat-form-field>
+
+        <!-- Usuario -->
+        <mat-form-field appearance="outline">
+          <mat-label>Usuario</mat-label>
+          <mat-select formControlName="usuario" required>
+            @for (u of listaUsuarios; track u.idUsuario) {
+              <mat-option [value]="u.idUsuario">{{ u.username }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Zona -->
+        <mat-form-field appearance="outline">
+          <mat-label>Zona</mat-label>
+          <mat-select formControlName="zona" required>
+            @for (z of listaZonas; track z.idZona) {
+              <mat-option [value]="z.idZona">{{ z.nombreZona }} – {{ z.distrito }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <button matButton="elevated">
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+
+        <button matButton routerLink="/homes">Volver</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

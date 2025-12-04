@@ -1,0 +1,46 @@
+<div class="container">
+  <h1 class="title-estilizada">Historial de Simulaciones</h1>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="c1">
+      <th mat-header-cell *matHeaderCellDef> Zona </th>
+      <td mat-cell *matCellDef="let element"> {{ element.zona.nombreZona }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="c2">
+      <th mat-header-cell *matHeaderCellDef> Alquiler </th>
+      <td mat-cell *matCellDef="let element"> S/. {{ element.costoAlquiler }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="c3">
+      <th mat-header-cell *matHeaderCellDef> Transporte </th>
+      <td mat-cell *matCellDef="let element"> S/. {{ element.costoTransporte }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="c4">
+      <th mat-header-cell *matHeaderCellDef> Total Estimado </th>
+      <td mat-cell *matCellDef="let element"> S/. {{ element.costoTotalEstimado }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="c5">
+      <th mat-header-cell *matHeaderCellDef> Fecha </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.fechaSimulacion | date:'dd/MM/yyyy' }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="c6">
+      <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="warn" (click)="eliminar(element.idSimulador)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+  <h1 class="title-estilizada">Reportes Generados</h1>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="c1">
+      <th mat-header-cell *matHeaderCellDef> Título </th>
+      <td mat-cell *matCellDef="let element"> {{ element.titulo }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="c2">
+      <th mat-header-cell *matHeaderCellDef> Usuario </th>
+      <td mat-cell *matCellDef="let element"> {{ element.usuario.username }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="c3">
+      <th mat-header-cell *matHeaderCellDef> Fecha </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.fechaGenerado | date:'dd/MM/yyyy' }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="c4">
+      <th mat-header-cell *matHeaderCellDef> Ver </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" routerLink="/reporte/detalle">
+          <mat-icon>visibility</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+  </table>
+</div>

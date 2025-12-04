@@ -1,0 +1,93 @@
+/* ============================= */
+/*        CONTENEDOR GENERAL     */
+/* ============================= */
+.container {
+  padding: 40px;
+  font-family: 'Rubik', sans-serif;
+}
+
+.title-estilizada {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 30px;
+}
+
+/* ============================= */
+/*             TABLA             */
+/* ============================= */
+table {
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--gray-75);
+  background: white;
+}
+
+/* ========= HEADER ========== */
+.mat-mdc-header-cell {
+  background: var(--primary) !important;
+  color: white !important;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px !important;
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+/* ========= CELDAS ========== */
+.mat-mdc-cell {
+  padding: 14px !important;
+  font-size: 14px;
+  color: var(--gray-25);
+  text-align: center;
+}
+
+/* Alternar filas */
+.mat-mdc-row:nth-child(even) {
+  background: var(--gray-100);
+}
+
+/* Hover */
+.mat-mdc-row:hover {
+  background: var(--hover) !important;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+/* ============================= */
+/*      ICONO DE ACCIONES        */
+/* ============================= */
+button[mat-icon-button] mat-icon {
+  transition: 0.25s ease;
+}
+
+button[mat-icon-button]:hover mat-icon {
+  transform: scale(1.23);
+}
+
+/* Botón ver */
+button[color="primary"] mat-icon {
+  color: var(--primary) !important;
+}
+
+/* ============================= */
+/*          RESPONSIVE           */
+/* ============================= */
+@media (max-width: 850px) {
+
+  .mat-mdc-header-cell,
+  .mat-mdc-cell {
+    padding: 10px !important;
+    font-size: 12.5px !important;
+  }
+
+  .title-estilizada {
+    font-size: 26px;
+  }
+
+  table {
+    border-radius: 10px;
+  }
+}

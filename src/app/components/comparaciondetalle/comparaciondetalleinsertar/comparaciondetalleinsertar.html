@@ -1,0 +1,54 @@
+<div class="container">
+  <div style="text-align: center; margin: 3%">
+    <h2>{{ edicion ? 'Editar Detalle' : 'Registrar Detalle' }}</h2>
+  </div>
+
+  <div style="text-align: center; margin: 3%">
+    <form [formGroup]="form" (submit)="aceptar()">
+
+      @if (edicion) {
+        <mat-form-field>
+          <mat-label>ID Detalle</mat-label>
+          <input matInput formControlName="idCompDetalle" />
+        </mat-form-field>
+      }
+      <br />
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Comparación</mat-label>
+        <mat-select formControlName="comparacion" required>
+          @for (c of listaComparaciones; track c.idComparacion) {
+            <mat-option [value]="c.idComparacion">
+              #{{ c.idComparacion }} - {{ c.usuario.username }}
+            </mat-option>
+          }
+        </mat-select>
+        @if (form.get('comparacion')?.hasError('required')) {
+          <mat-error>Seleccione comparación.</mat-error>
+        }
+      </mat-form-field>
+      <br />
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Zona</mat-label>
+        <mat-select formControlName="zona" required>
+          @for (z of listaZonas; track z.idZona) {
+            <mat-option [value]="z.idZona">
+              {{ z.nombreZona }}
+            </mat-option>
+          }
+        </mat-select>
+
+        @if (form.get('zona')?.hasError('required')) {
+          <mat-error>Seleccione zona.</mat-error>
+        }
+      </mat-form-field>
+      <br />
+
+      <button matButton="elevated">
+        {{ edicion ? 'Actualizar' : 'Registrar' }}
+      </button>
+
+    </form>
+  </div>
+</div>
