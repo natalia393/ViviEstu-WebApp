@@ -45,7 +45,7 @@ export class Usuarioinsertar implements OnInit{
 
 
       this.uS.insert(this.dto).subscribe(() => {
-        this.router.navigate(['usuario']);
+        this.router.navigate(['/login']);
       });
     }
   }
